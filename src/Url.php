@@ -83,7 +83,7 @@ class Url {
                 break;
         }
         return $variable;
-    }    
+    }
  
     /**
      * vérifie l'authentification suivant la demande

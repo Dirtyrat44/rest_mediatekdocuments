@@ -78,7 +78,7 @@ class Connexion {
      * @param array|null $param
      * @return array|null lignes récupérées ou null si erreur
      */
-    public function queryBDD(string $requete, ?array $param=null) : ?array{     
+    public function queryBDD(string $requete, ?array $param=null) : ?array{
         try{
             $result = $this->prepareRequete($requete, $param);
             $reponse = $result->execute();
@@ -86,7 +86,7 @@ class Connexion {
                 return $result->fetchAll(PDO::FETCH_ASSOC);
             }else{
                 return null;
-            } 
+            }
         }catch(Exception $e){
             return null;
         }
@@ -111,5 +111,37 @@ class Connexion {
             throw $e;
         }
     }
-    
+
+    /**
+     * Démarre une transaction SQL
+     * Aucune requête si pas de Commit()
+     * @return void
+     */
+    public function beginTransaction(): void {
+        $this->conn->beginTransaction();
+    }
+
+    /**
+     * Valide toutes les requêtes exécutées depuis beginTransaction()
+     * @return void
+     */
+    public function commit(): void {
+        $this->conn->commit();
+    }
+
+    /**
+     * Annule toutes les requêtes exécutées depuis beginTransaction()
+     * @return void
+     */
+    public function rollBack(): void {
+        $this->conn->rollBack();
+    }
+
+    /**
+     * Vérifie si une transaction est actuellement en cours
+     * @return bool
+     */
+    public function inTransaction(): bool {
+        return $this->conn->inTransaction();
+    }
 }

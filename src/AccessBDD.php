@@ -56,7 +56,7 @@ abstract class AccessBDD {
                 return $this->traitementDelete($table, $champs);
             default :
                 return null;
-        }       
+        }
     }
 
     abstract protected function traitementSelect(string $table, ?array $champs) : ?array;
