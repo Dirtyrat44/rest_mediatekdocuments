@@ -54,7 +54,8 @@ CREATE TABLE commande (
 CREATE TABLE commandedocument (
   id varchar(5) NOT NULL,
   nbExemplaire int(11) DEFAULT NULL,
-  idLivreDvd varchar(10) NOT NULL
+  idLivreDvd varchar(10) NOT NULL,
+  idSuivi varchar(5) NOT NULL DEFAULT '00001'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -407,6 +408,30 @@ INSERT INTO revue (id, periodicite, delaiMiseADispo) VALUES
 ('10010', 'HB', 12),
 ('10011', 'MS', 52);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table suivi
+--
+
+CREATE TABLE IF NOT EXISTS suivi (
+    id varchar(5) NOT NULL,          
+    libelle varchar(20) NOT NULL,          
+    ordre tinyint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table suivi
+--
+
+INSERT INTO suivi (id, libelle, ordre) VALUES
+('00001', 'En cours',   1),
+('00002', 'Relancée',   2),
+('00003', 'Livrée',     3),
+('00004', 'Réglée',     4);
+
+-- --------------------------------------------------------
+
 --
 -- Index pour les tables déchargées
 --
@@ -429,7 +454,8 @@ ALTER TABLE commande
 --
 ALTER TABLE commandedocument
   ADD PRIMARY KEY (id),
-  ADD KEY idLivreDvd (idLivreDvd);
+  ADD KEY idLivreDvd (idLivreDvd),
+  ADD KEY idSuivi (idSuivi);  
 
 --
 -- Index pour la table document
@@ -495,6 +521,14 @@ ALTER TABLE rayon
 ALTER TABLE revue
   ADD PRIMARY KEY (id);
 
+-- 
+-- Index pour la table suivi
+--
+
+ALTER TABLE suivi
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY uk_suivi_libelle (libelle);
+
 --
 -- Contraintes pour les tables déchargées
 --
@@ -511,7 +545,8 @@ ALTER TABLE abonnement
 --
 ALTER TABLE commandedocument
   ADD CONSTRAINT commandedocument_ibfk_1 FOREIGN KEY (id) REFERENCES commande (id),
-  ADD CONSTRAINT commandedocument_ibfk_2 FOREIGN KEY (idLivreDvd) REFERENCES livres_dvd (id);
+  ADD CONSTRAINT commandedocument_ibfk_2 FOREIGN KEY (idLivreDvd) REFERENCES livres_dvd (id),
+  ADD CONSTRAINT commandedocument_ibfk_3 FOREIGN KEY (idSuivi) REFERENCES suivi (id);
 
 --
 -- Contraintes pour la table document
@@ -551,6 +586,95 @@ ALTER TABLE livres_dvd
 --
 ALTER TABLE revue
   ADD CONSTRAINT revue_ibfk_1 FOREIGN KEY (id) REFERENCES document (id);
+
+-- --------------------------------------------------------
+
+--
+-- Triggers métiers commande / exemplaire
+--
+
+DELIMITER $$
+
+--
+-- Interdire les transitions invalides
+--
+
+CREATE TRIGGER trg_commandedocument_before_update
+BEFORE UPDATE ON commandedocument
+FOR EACH ROW
+BEGIN
+  IF (OLD.idSuivi = '00003' AND NEW.idSuivi IN ('00001','00002'))
+     OR (OLD.idSuivi = '00004' AND NEW.idSuivi <> '00004') THEN
+       SIGNAL SQLSTATE '45000'
+         SET MESSAGE_TEXT = 'Retour en arrière interdit.';
+  END IF;
+
+  IF NEW.idSuivi = '00004' AND OLD.idSuivi <> '00003' THEN
+       SIGNAL SQLSTATE '45000'
+         SET MESSAGE_TEXT = 'Une commande doit être Livrée avant d''être Réglée.';
+  END IF;
+END$$
+
+--
+-- Bloquer la suppression si Livrée
+--
+
+CREATE TRIGGER trg_commandedocument_before_delete
+BEFORE DELETE ON commandedocument
+FOR EACH ROW
+BEGIN
+  IF OLD.idSuivi >= '00003' THEN
+       SIGNAL SQLSTATE '45000'
+         SET MESSAGE_TEXT = 'Suppression impossible : commande Livrée ou Réglée.';
+  END IF;
+END$$
+
+--
+-- Suppression dans la classe fille
+--
+
+CREATE TRIGGER trg_commande_after_delete
+AFTER DELETE ON commande
+FOR EACH ROW
+BEGIN
+  DELETE FROM commandedocument WHERE id = OLD.id;
+END$$
+
+--
+-- Générer les exemplaires quand la commande passe à Livrée
+--
+
+CREATE TRIGGER trg_commandedocument_after_update_livree
+AFTER UPDATE ON commandedocument
+FOR EACH ROW
+BEGIN
+  DECLARE dAchat DATE;
+  DECLARE lastNum INT DEFAULT 0;
+  DECLARE i INT DEFAULT 1;
+  IF NEW.idSuivi = '00003' AND OLD.idSuivi <> '00003' THEN     
+
+      SELECT dateCommande INTO dAchat
+      FROM   commande
+      WHERE  id = NEW.id;
+
+      SELECT IFNULL(MAX(numero),0) INTO lastNum
+      FROM   exemplaire
+      WHERE  id = NEW.idLivreDvd;
+
+      WHILE i <= NEW.nbExemplaire DO
+          INSERT INTO exemplaire (id, numero, dateAchat, photo, idEtat)
+          VALUES (NEW.idLivreDvd,
+                  lastNum + i,
+                  dAchat,
+                  '',
+                  '00001');
+          SET i = i + 1;
+      END WHILE;
+  END IF;
+END$$
+DELIMITER ;
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

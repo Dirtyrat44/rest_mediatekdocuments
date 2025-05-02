@@ -35,8 +35,15 @@ class Controle{
      * @param array|null $champs
      */
     public function demande(string $methodeHTTP, string $table, ?string $id, ?array $champs){
-        $result = $this->myAaccessBDD->demande($methodeHTTP, $table, $id, $champs);
-        $this->controleResult($result);
+        try {
+            $result = $this->myAaccessBDD->demande($methodeHTTP, $table, $id, $champs);
+            $this->controleResult($result);
+        } catch (userMessageException $ex) {
+            $this->controleResult(null, $ex->getMessage());
+        }
+        catch (Exception $e) {
+            $this->controleResult(null);
+        }
     }
 
     /**
@@ -59,12 +66,12 @@ class Controle{
      * demande l'affichage de la réponse adéquate
      * @param array|int|null $result résultat de la requête
      */
-    private function controleResult(array|int|null $result) {
+    private function controleResult(array|int|null $result, string $error = "") {
         if (!is_null($result)){
             $this->reponse(200, "OK", $result);
-        }else{	
-            $this->reponse(400, "requete invalide");
-        }        
+        }else{
+            $this->reponse(400, $error ?: "requete invalide");
+        }
     }
 	
     /**

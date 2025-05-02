@@ -43,14 +43,14 @@ class MyAccessBDD extends AccessBDD
                 return $this->selectAllRevues();
             case "exemplaire":
                 return $this->selectExemplairesRevue($champs);
+            case "commandecomplete": // commande et commandedocument
+                return $this->selectCommande($champs);
             case "genre":
             case "public":
             case "rayon":
             case "etat":
                 // select portant sur une table contenant juste id et libelle
                 return $this->selectTableSimple($table);
-            case "":
-                // return $this->uneFonction(parametres);
             default:
                 // cas général
                 return $this->selectTuplesOneTable($table, $champs);
@@ -87,6 +87,8 @@ class MyAccessBDD extends AccessBDD
                     "periodicite" => $champs["periodicite"],
                     "delaiMiseADispo" => $champs["delaiMiseADispo"]
                 ]);
+            case "commande":
+                return $this->insertCommande($champs);
             default:
                 // cas général
                 return $this->insertOneTupleOneTable($table, $champs);
@@ -124,6 +126,8 @@ class MyAccessBDD extends AccessBDD
                     "periodicite" => $champs["periodicite"],
                     "delaiMiseADispo" => $champs["delaiMiseADispo"]
                 ]);
+            case "commande":
+                return $this->updateCommande($champs);
             default:
                 // cas général
                 return $this->updateOneTupleOneTable($table, $id, $champs);
@@ -146,6 +150,8 @@ class MyAccessBDD extends AccessBDD
                 return $this->deleteDocumentWithType($champs, $table);
             case "revue":
                 return $this->deleteDocumentWithType($champs, $table);
+            case "commande":
+                return $this->deleteCommande($champs);
             default:
                 // cas général
                 return $this->deleteTuplesOneTable($table, $champs);
@@ -315,7 +321,7 @@ class MyAccessBDD extends AccessBDD
 
     /**
      * récupère tous les exemplaires d'une revue
-     * @param array|null $champs 
+     * @param array|null $champs
      * @return array|null
      */
     private function selectExemplairesRevue(?array $champs): ?array
@@ -331,6 +337,22 @@ class MyAccessBDD extends AccessBDD
         $requete .= "from exemplaire e join document d on e.id=d.id ";
         $requete .= "where e.id = :id ";
         $requete .= "order by e.dateAchat DESC";
+        return $this->conn->queryBDD($requete, $champNecessaire);
+    }
+
+    private function selectCommande(?array $champs): ?array
+    {
+        if (empty($champs)) {
+            return null;
+        }
+        if (!array_key_exists('id', $champs)) {
+            return null;
+        }
+        $champNecessaire['id'] = $champs['id'];
+        $requete = "Select cd.id, c.dateCommande, c.montant, cd.nbExemplaire, cd.idLivreDvd, cd.idSuivi, s.libelle ";
+        $requete .= "FROM commandedocument cd JOIN commande c ON c.id = cd.id JOIN suivi s ON s.id = cd.idSuivi ";
+        $requete .= "WHERE cd.idLivreDvd = :id ";
+        $requete .= "ORDER BY c.dateCommande DESC";
         return $this->conn->queryBDD($requete, $champNecessaire);
     }
 
@@ -496,7 +518,7 @@ class MyAccessBDD extends AccessBDD
     {
         try {
             if ($this->documentHasCommande($data, $type) || $this->documentHasExemplaire($data)) {
-                throw new Exception("Echec $type a une commande ou un exemplaire");
+                throw new UserMessageException("Ce document possède déjà une commande ou un exemplaire");
             }
             $this->conn->beginTransaction();
 
@@ -514,12 +536,180 @@ class MyAccessBDD extends AccessBDD
 
             $this->conn->commit();
             return 1;
+        } catch (userMessageException $ex) {
+            if ($this->conn->inTransaction()) {
+                $this->conn->rollBack();
+            }
+
+            throw $ex;
         } catch (Exception $e) {
             if ($this->conn->inTransaction()) {
                 $this->conn->rollBack();
             }
 
+            throw $e;
+        }
+    }
+
+    /**
+     * Génère le prochain id de commande au format "00001"
+     * Cherche le plus grand et l'incrémente de 1
+     * @return string
+     */
+    private function genererIdCommande(): string
+    {
+        $sql = "SELECT LPAD(COALESCE(MAX(CAST(id AS UNSIGNED)),0)+1,5,'0') AS next ";
+        $sql .= "FROM commande;";
+        $res = $this->conn->queryBDD($sql);
+        return $res[0]["next"];
+    }
+
+    /**
+     * Vérifie si une commande est supprimable
+     * @param string $id
+     * @return bool True si la ligne existe et que le bon statut correspond
+     */
+    private function commandeSupprimable(string $id): bool|null
+    {
+        $requete = "SELECT idSuivi ";
+        $requete .= "FROM commandedocument ";
+        $requete .= "WHERE id = :id;";
+
+        $result = $this->conn->queryBDD($requete, ["id" => $id]);
+        if($result === null || !isset($result[0]["idSuivi"]))
+        {
             return null;
+        }
+        return $result[0]["idSuivi"] < '00003'; // Si statut < livrée
+    }
+    
+    /**
+     * Ajoute une commande
+     * La méthode effectue une insertion transactionnelle dans :
+     * La table commande
+     * La table commandedocument
+     * 
+     * @param array $data de la commande
+     * @return int|null Retourne 1 si l’insertion réussit ou null si échec
+     */
+    private function insertCommande(array $data): ?int
+    {
+        try {
+            $id =$this->genererIdCommande();
+
+            $this->conn->beginTransaction();
+
+            if (!$this->insertOneTupleOneTable("commande",[
+            "id" => "$id",
+            "dateCommande" => $data["dateCommande"],
+            "montant" => $data["montant"]
+            ]))
+            {
+                throw new Exception("Echec insert commande");
+            }
+
+            if (!$this->insertOneTupleOneTable("commandedocument",[
+                "id" => "$id",
+                "nbExemplaire" => $data["nbExemplaire"],
+                "idLivreDvd" => $data["idLivreDvd"]
+                ]))
+            {
+                throw new Exception("Echec insert commandedocument");
+            }
+            
+            $this->conn->commit();
+            return 1;
+        } catch (Exception $e) {
+            $this->conn->rollBack();
+            return null;
+        }
+    }
+
+    /**
+    * Supprime une commande si son statut est < '00003'
+    *
+    * @param array $data
+    * @return int|null Retourne 1 si la suppression réussit ou null si échec
+    */
+    private function deleteCommande(array $data): ?int
+    {
+        try
+        {
+            $suppr = $this->commandeSupprimable($data["id"]);
+            
+            if ($suppr === null) {
+                throw new UserMessageException("Commande introuvable ou n'existe pas");
+            }
+            if ($suppr === false) {
+                throw new UserMessageException("Suppression impossible : commande Livrée ou Réglée");
+            }
+
+            $this->conn->beginTransaction();
+
+            if(!$this->deleteTuplesOneTable("commandedocument", ["id" => $data["id"]]))
+            {
+                throw new Exception("Echec suppression commandedocument");
+            }
+            if(!$this->deleteTuplesOneTable("commande", ["id" => $data["id"]]))
+            {
+                throw new Exception("Echec suppression commande");
+            }
+
+            $this->conn->commit();
+            return 1;
+        } catch (UserMessageException $ex)
+        {
+            if ($this->conn->inTransaction())
+            {
+                $this->conn->rollBack();
+            }
+
+            throw $ex;
+        } catch (Exception $e)
+        {
+            if ($this->conn->inTransaction())
+            {
+                $this->conn->rollBack();
+            }
+
+            return null;
+        }
+        
+    }
+
+    /**
+    * Modifie une commande si son statut est < '00003'
+    *
+    * @param array $data
+    * @return int|null Retourne 1 si la modification réussit ou null si échec
+    */
+    private function updateCommande(array $data): ?int
+    {
+        try
+        {
+            $result = $this->updateOneTupleOneTable("commandedocument", $data["id"], [
+                "idSuivi" => $data["idSuivi"]
+            ]);
+
+            if ($result === null)
+            {
+                throw new UserMessageException("Modification impossible : commande Livrée ou Réglée.");
+            }
+
+            if ($result === 0)
+            {
+                $exist = $this->conn->queryBDD("SELECT 1 FROM commandedocument WHERE id = :id", ["id" => $data["id"]]);
+                if(empty($exist)) {
+                    throw new UserMessageException("Commande introuvable");
+                }
+
+                return 1; // Aucune modification
+            }
+           
+            return 1;
+        } catch (UserMessageException $ex)
+        {
+            throw $ex;
         }
     }
 }

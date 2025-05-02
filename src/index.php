@@ -8,6 +8,7 @@
  */
 include_once ("Url.php");
 include_once("Controle.php");
+include_once("UserMessageException.php");
 
 // crée l'objet d'accès aux informations de l'URL qui sollicite l'API
 $url = Url::getInstance();
