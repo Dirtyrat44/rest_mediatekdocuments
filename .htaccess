@@ -1,3 +1,7 @@
+RewriteRule ^$ - [R=400,L]
+RewriteCond %{REQUEST_URI} ^/rest_mediatekdocuments/?$
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^ - [R=400,L]
 RewriteEngine on
 RewriteCond %{REQUEST_METHOD} =GET
 RewriteRule ^([a-zA-Z0-9_]+)$ src/index.php?table=$1 [B,L]
