@@ -432,6 +432,50 @@ INSERT INTO suivi (id, libelle, ordre) VALUES
 
 -- --------------------------------------------------------
 
+-- 
+-- Structure de la table Service
+-- 
+
+CREATE TABLE service (
+  idService   INT            NOT NULL,
+  nomService  VARCHAR(50)    NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 
+-- Déchargement des données de la table service
+-- 
+
+INSERT INTO service (idService, nomService) VALUES
+  (1, 'Administrateur'),
+  (2, 'Administratif'),
+  (3, 'Prêts'),
+  (4, 'Culture');
+
+-- --------------------------------------------------------
+
+-- 
+-- Structure de la table Utilisateur
+-- 
+
+CREATE TABLE utilisateur (
+  idUtilisateur INT           NOT NULL,
+  login         VARCHAR(50)    NOT NULL,
+  motDePasse    VARCHAR(255)   NOT NULL,
+  idService     INT            NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 
+-- Déchargement des données de la table utilisateur
+-- 
+
+INSERT INTO utilisateur (idUtilisateur, login, motDePasse, idService) VALUES
+  (1, 'admin',        'adminpwd',   1),
+  (2, 'gestionnaire', 'gestpwd',    2),
+  (3, 'prets1',       'pretspwd',   3),
+  (4, 'culture1',     'culturepwd', 4);
+
+-- --------------------------------------------------------
+
 --
 -- Index pour les tables déchargées
 --
@@ -529,6 +573,25 @@ ALTER TABLE suivi
   ADD PRIMARY KEY (id),
   ADD UNIQUE KEY uk_suivi_libelle (libelle);
 
+-- 
+-- Index pour la table service
+--
+
+ALTER TABLE service
+  MODIFY idService INT NOT NULL AUTO_INCREMENT,
+  ADD PRIMARY KEY (idService),
+  ADD UNIQUE KEY uk_service_nomservice (nomService);
+
+-- 
+-- Index pour la table utilisateur
+--
+
+ALTER TABLE utilisateur
+  MODIFY idUtilisateur INT NOT NULL AUTO_INCREMENT,
+  ADD PRIMARY KEY (idUtilisateur),
+  ADD UNIQUE KEY uk_utilisateur_login (login),
+  ADD KEY idx_utilisateur_idservice (idService);
+
 --
 -- Contraintes pour les tables déchargées
 --
@@ -586,6 +649,17 @@ ALTER TABLE livres_dvd
 --
 ALTER TABLE revue
   ADD CONSTRAINT revue_ibfk_1 FOREIGN KEY (id) REFERENCES document (id);
+
+--
+-- Contraintes pour la table utilisateur
+--
+
+ALTER TABLE utilisateur
+  ADD CONSTRAINT fk_utilisateur_service
+    FOREIGN KEY (idService)
+    REFERENCES service (idService)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT;
 
 -- --------------------------------------------------------
 
