@@ -633,8 +633,8 @@ class MyAccessBDD extends AccessBDD
 
             $param = [
                 "idRevue" => $result["idRevue"],
-                "dateCommande"      => $result["dateCommande"],
-                "dateFinAbonnement"      => $result["dateFinAbonnement"]
+                "dateCommande" => $result["dateCommande"],
+                "dateFinAbonnement" => $result["dateFinAbonnement"]
             ];
             $nb = $this->conn->queryBDD($reqCount, $param)[0]["nb"] ?? 0;
 
