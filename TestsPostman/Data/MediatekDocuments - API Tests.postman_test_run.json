@@ -1,0 +1,1622 @@
+{
+	"id": "70fe2bb2-31b0-4eba-bd37-ef22b889b28e",
+	"name": "MediatekDocuments - API Tests",
+	"timestamp": "2025-05-09T09:33:28.667Z",
+	"collection_id": "43760039-84a13105-91c7-495c-bc22-cb8cd649b5ca",
+	"folder_id": 0,
+	"environment_id": "43760039-0d342ce6-c7ed-49fb-a015-b9f058ce175d",
+	"totalPass": 150,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-09T09:33:25.868Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "122a50af-a72b-4b5e-9ddb-9e7213260d37",
+			"name": "Ajouter un livre",
+			"url": "http://localhost/rest_mediatekdocuments/livre",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Retour = OK": true,
+				"Une ligne ajoutée": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Retour = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Retour = OK": true,
+					"Une ligne ajoutée": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "a53e83b9-abe4-4527-8986-676f64b9301b",
+			"name": "Afficher les livres",
+			"url": "http://localhost/rest_mediatekdocuments/livre",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / résultat": true,
+				"Code = 200": true,
+				"Résultat non vide": true,
+				"Le livre : La Peste est présent": true,
+				"Chaque item possède les bonnes keys": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / résultat": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Résultat non vide": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Le livre : La Peste est présent": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Chaque item possède les bonnes keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / résultat": true,
+					"Code = 200": true,
+					"Résultat non vide": true,
+					"Le livre : La Peste est présent": true,
+					"Chaque item possède les bonnes keys": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "5e3a8b5c-0cb6-482f-a35f-047c256404cf",
+			"name": "Update un livre",
+			"url": "http://localhost/rest_mediatekdocuments/livre",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne modifiée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne modifiée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne modifiée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "22f1a6ff-b4bc-4ae8-9aaa-e8711ac0cf62",
+			"name": "Supprimer un livre",
+			"url": "http://localhost/rest_mediatekdocuments/livre",
+			"time": 39,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				39
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "2c46612a-7c03-4266-a2e3-d58b6c68dfec",
+			"name": "Vérifier la suppression",
+			"url": "http://localhost/rest_mediatekdocuments/livre",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Code = 200": true,
+				"Livre 00030 ne doit plus exister": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Livre 00030 ne doit plus exister": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Code = 200": true,
+					"Livre 00030 ne doit plus exister": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "b2e96eb3-5e89-4b22-8e78-97470c7c97ad",
+			"name": "Ajouter un DVD",
+			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Retour OK": true,
+				"Une ligne ajoutée": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Retour OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Retour OK": true,
+					"Une ligne ajoutée": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "8556f0d7-8983-4e71-97db-49846381f7e1",
+			"name": "Afficher les DVD",
+			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / résultat": true,
+				"Retour Json code 200": true,
+				"Résultat non vide": true,
+				"Le DVD : Inception est présent": true,
+				"Chaque item possède les bonnes keys": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / résultat": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Retour Json code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Résultat non vide": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Le DVD : Inception est présent": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Chaque item possède les bonnes keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / résultat": true,
+					"Retour Json code 200": true,
+					"Résultat non vide": true,
+					"Le DVD : Inception est présent": true,
+					"Chaque item possède les bonnes keys": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "1bda0082-a717-4dce-866d-079d0d5b108a",
+			"name": "Update un DVD",
+			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message OK": true,
+				"Ligne modifiée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne modifiée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message OK": true,
+					"Ligne modifiée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "544d8ace-ade9-44e7-90b5-e59c0b1789af",
+			"name": "Supprimer un DVD",
+			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "c6153350-5cb7-48a1-82e0-0472d40d8997",
+			"name": "Vérifier la suppression",
+			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Result vaut 200": true,
+				"Le DVD 20005 ne doit plus exister": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result vaut 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Le DVD 20005 ne doit plus exister": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Result vaut 200": true,
+					"Le DVD 20005 ne doit plus exister": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "3cf7b470-f40f-4502-80db-9dcb404435f7",
+			"name": "Ajouter une revue",
+			"url": "http://localhost/rest_mediatekdocuments/revue",
+			"time": 42,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Retour OK": true,
+				"Une ligne ajoutée": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Retour OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Retour OK": true,
+					"Une ligne ajoutée": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "398d229b-4d43-45cf-b4c6-db18eb4a7ee0",
+			"name": "Afficher les revues",
+			"url": "http://localhost/rest_mediatekdocuments/revue",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / résultat": true,
+				"Retour Json code 200": true,
+				"Résultat non vide": true,
+				"La revue Les Échos est présent": true,
+				"Chaque item possède les bonnes keys": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / résultat": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Retour Json code 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Résultat non vide": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La revue Les Échos est présent": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Chaque item possède les bonnes keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / résultat": true,
+					"Retour Json code 200": true,
+					"Résultat non vide": true,
+					"La revue Les Échos est présent": true,
+					"Chaque item possède les bonnes keys": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "68fdab77-453b-4eab-87db-6f50685a94e5",
+			"name": "Update une revue",
+			"url": "http://localhost/rest_mediatekdocuments/revue",
+			"time": 42,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message OK": true,
+				"Ligne modifiée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne modifiée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message OK": true,
+					"Ligne modifiée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "96dfa99f-b695-4a84-9bdd-dbb9d37fc9ad",
+			"name": "Supprimer une revue",
+			"url": "http://localhost/rest_mediatekdocuments/revue",
+			"time": 41,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				41
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "c3cad15a-5eac-4d11-bf60-6a8565782144",
+			"name": "Vérifier la suppression",
+			"url": "http://localhost/rest_mediatekdocuments/revue",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Result vaut 200": true,
+				"La revue 10012 ne doit plus exister": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result vaut 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La revue 10012 ne doit plus exister": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Result vaut 200": true,
+					"La revue 10012 ne doit plus exister": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "0c2282ed-b1d3-4a04-8e71-ef42102e8c26",
+			"name": "Ajouter une commande",
+			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
+			"time": 37,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / result": true,
+				"Message = OK": true,
+				"Une ligne ajoutée": true,
+				"Response < 1 s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response < 1 s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / result": true,
+					"Message = OK": true,
+					"Une ligne ajoutée": true,
+					"Response < 1 s": true
+				}
+			]
+		},
+		{
+			"id": "e057bbc5-49ca-4595-bfad-dd4ddcc003ca",
+			"name": "Update la commande",
+			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne modifiée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne modifiée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne modifiée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "2b4e8f0b-1fb7-4518-81d5-50ca25838cb9",
+			"name": "Supprimer une commande",
+			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "867a8213-03a9-4e82-8493-a159c1daf182",
+			"name": "Vérifier la suppression de la commande",
+			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code = 200": true,
+				"Message = OK": true,
+				"Result = []": true,
+				"La commande 00001 ne doit plus exister": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result = []": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La commande 00001 ne doit plus exister": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code = 200": true,
+					"Message = OK": true,
+					"Result = []": true,
+					"La commande 00001 ne doit plus exister": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "a3899854-ea39-484b-a870-b2d6e5d1b0b9",
+			"name": "Ajouter un abonnement",
+			"url": "http://localhost/rest_mediatekdocuments/abonnement",
+			"time": 37,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / result": true,
+				"Message = OK": true,
+				"Une ligne ajoutée": true,
+				"Response < 1 s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response < 1 s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / result": true,
+					"Message = OK": true,
+					"Une ligne ajoutée": true,
+					"Response < 1 s": true
+				}
+			]
+		},
+		{
+			"id": "8b610726-089d-42e2-9cd9-f560523a5a4b",
+			"name": "Afficher les abonnements",
+			"url": "http://localhost/rest_mediatekdocuments/abonnement",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code = 200": true,
+				"Message = OK": true,
+				"Il y a 1 abonnement": true,
+				"L'abonnement 00001 existe": true,
+				"Chaque item possède les bonnes keys": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Il y a 1 abonnement": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'abonnement 00001 existe": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Chaque item possède les bonnes keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code = 200": true,
+					"Message = OK": true,
+					"Il y a 1 abonnement": true,
+					"L'abonnement 00001 existe": true,
+					"Chaque item possède les bonnes keys": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "5be4f2ed-8377-418e-8c92-2af9dbba6b22",
+			"name": "Supprimer un abonnement",
+			"url": "http://localhost/rest_mediatekdocuments/abonnement",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "cdc51cfa-6ab8-4893-b1de-774db524c4e3",
+			"name": "Vérifier la suppression de l'abonnement",
+			"url": "http://localhost/rest_mediatekdocuments/abonnement",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code = 200": true,
+				"Message = OK": true,
+				"Result = []": true,
+				"La commande 00001 ne doit plus exister": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result = []": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La commande 00001 ne doit plus exister": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code = 200": true,
+					"Message = OK": true,
+					"Result = []": true,
+					"La commande 00001 ne doit plus exister": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "ca90ab11-cb96-42db-8a3e-eff452e32b8a",
+			"name": "Ajouter un exemplaire",
+			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
+			"time": 37,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code / message / result": true,
+				"Message = OK": true,
+				"Une ligne ajoutée": true,
+				"Response < 1 s": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code / message / result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Une ligne ajoutée": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response < 1 s": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code / message / result": true,
+					"Message = OK": true,
+					"Une ligne ajoutée": true,
+					"Response < 1 s": true
+				}
+			]
+		},
+		{
+			"id": "0e41a7fe-cdea-47c2-bda0-4a4aa1b666f8",
+			"name": "Afficher les exemplaires",
+			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code = 200": true,
+				"Message = OK": true,
+				"Il y a 10 exemplaires": true,
+				"L'exemplaire 515 existe": true,
+				"Chaque item possède les bonnes keys": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Il y a 10 exemplaires": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'exemplaire 515 existe": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Chaque item possède les bonnes keys": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code = 200": true,
+					"Message = OK": true,
+					"Il y a 10 exemplaires": true,
+					"L'exemplaire 515 existe": true,
+					"Chaque item possède les bonnes keys": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "7389dbc3-ced8-4e4a-85f1-44b41e3cf58e",
+			"name": "Update un exemplaire",
+			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne modifiée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne modifiée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne modifiée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "ed53196a-50cd-42d4-9863-5c0afde5b79a",
+			"name": "Supprimer un exemplaire",
+			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code/message/result": true,
+				"Message = OK": true,
+				"Ligne supprimée = 1": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code/message/result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ligne supprimée = 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code/message/result": true,
+					"Message = OK": true,
+					"Ligne supprimée = 1": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		},
+		{
+			"id": "65b99f29-c6b0-4a90-a1bb-b2ff4cb737c1",
+			"name": "Vérifier la suppression de l'exemplaire",
+			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"code = 200": true,
+				"Message = OK": true,
+				"Il y a 10 exemplaires": true,
+				"L'exemplaire 515 n'existe pas": true,
+				"Response time is less than 1000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"code = 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message = OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Il y a 10 exemplaires": {
+					"pass": 1,
+					"fail": 0
+				},
+				"L'exemplaire 515 n'existe pas": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"code = 200": true,
+					"Message = OK": true,
+					"Il y a 10 exemplaires": true,
+					"L'exemplaire 515 n'existe pas": true,
+					"Response time is less than 1000ms": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 816,
+	"collection": {
+		"requests": [
+			{
+				"id": "122a50af-a72b-4b5e-9ddb-9e7213260d37",
+				"method": "POST"
+			},
+			{
+				"id": "a53e83b9-abe4-4527-8986-676f64b9301b",
+				"method": "GET"
+			},
+			{
+				"id": "5e3a8b5c-0cb6-482f-a35f-047c256404cf",
+				"method": "PUT"
+			},
+			{
+				"id": "22f1a6ff-b4bc-4ae8-9aaa-e8711ac0cf62",
+				"method": "DELETE"
+			},
+			{
+				"id": "2c46612a-7c03-4266-a2e3-d58b6c68dfec",
+				"method": "GET"
+			},
+			{
+				"id": "b2e96eb3-5e89-4b22-8e78-97470c7c97ad",
+				"method": "POST"
+			},
+			{
+				"id": "8556f0d7-8983-4e71-97db-49846381f7e1",
+				"method": "GET"
+			},
+			{
+				"id": "1bda0082-a717-4dce-866d-079d0d5b108a",
+				"method": "PUT"
+			},
+			{
+				"id": "544d8ace-ade9-44e7-90b5-e59c0b1789af",
+				"method": "DELETE"
+			},
+			{
+				"id": "c6153350-5cb7-48a1-82e0-0472d40d8997",
+				"method": "GET"
+			},
+			{
+				"id": "3cf7b470-f40f-4502-80db-9dcb404435f7",
+				"method": "POST"
+			},
+			{
+				"id": "398d229b-4d43-45cf-b4c6-db18eb4a7ee0",
+				"method": "GET"
+			},
+			{
+				"id": "68fdab77-453b-4eab-87db-6f50685a94e5",
+				"method": "PUT"
+			},
+			{
+				"id": "96dfa99f-b695-4a84-9bdd-dbb9d37fc9ad",
+				"method": "DELETE"
+			},
+			{
+				"id": "c3cad15a-5eac-4d11-bf60-6a8565782144",
+				"method": "GET"
+			},
+			{
+				"id": "0c2282ed-b1d3-4a04-8e71-ef42102e8c26",
+				"method": "POST"
+			},
+			{
+				"id": "e057bbc5-49ca-4595-bfad-dd4ddcc003ca",
+				"method": "PUT"
+			},
+			{
+				"id": "2b4e8f0b-1fb7-4518-81d5-50ca25838cb9",
+				"method": "DELETE"
+			},
+			{
+				"id": "867a8213-03a9-4e82-8493-a159c1daf182",
+				"method": "GET"
+			},
+			{
+				"id": "a3899854-ea39-484b-a870-b2d6e5d1b0b9",
+				"method": "POST"
+			},
+			{
+				"id": "8b610726-089d-42e2-9cd9-f560523a5a4b",
+				"method": "GET"
+			},
+			{
+				"id": "5be4f2ed-8377-418e-8c92-2af9dbba6b22",
+				"method": "DELETE"
+			},
+			{
+				"id": "cdc51cfa-6ab8-4893-b1de-774db524c4e3",
+				"method": "GET"
+			},
+			{
+				"id": "ca90ab11-cb96-42db-8a3e-eff452e32b8a",
+				"method": "POST"
+			},
+			{
+				"id": "0e41a7fe-cdea-47c2-bda0-4a4aa1b666f8",
+				"method": "GET"
+			},
+			{
+				"id": "7389dbc3-ced8-4e4a-85f1-44b41e3cf58e",
+				"method": "PUT"
+			},
+			{
+				"id": "ed53196a-50cd-42d4-9863-5c0afde5b79a",
+				"method": "DELETE"
+			},
+			{
+				"id": "65b99f29-c6b0-4a90-a1bb-b2ff4cb737c1",
+				"method": "GET"
+			}
+		]
+	}
+}

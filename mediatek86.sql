@@ -159,10 +159,10 @@ CREATE TABLE etat (
 --
 
 INSERT INTO etat (id, libelle) VALUES
-('00001', 'neuf'),
-('00002', 'usagé'),
-('00003', 'détérioré'),
-('00004', 'inutilisable');
+('00001', 'Neuf'),
+('00002', 'Usagé'),
+('00003', 'Détérioré'),
+('00004', 'Inutilisable');
 
 -- --------------------------------------------------------
 
