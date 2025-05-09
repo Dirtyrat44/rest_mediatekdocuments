@@ -352,10 +352,10 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * 
-     * @param string $type
-     * @param array $champs
-     * @return array|null
+     *  Récupère les informations d'une commande selon le type de document
+     * @param array|null $champs id du document
+     * @param string $type Type de commande(commandedocument ou abonnement)
+     * @return array|null Résultat de la requête ou null
      */
     private function selectCommande(?array $champs, string $type): ?array
     {
@@ -392,7 +392,7 @@ class MyAccessBDD extends AccessBDD
      *
      * @param array $id du document
      * @param string $type de document (livre, dvd, revue)
-     * @return bool true si au moins 1 ligne sinon false
+     * @return bool True si une commande existe sinon false
      */
     private function documentHasCommande(array $id, string $type): bool
     {
@@ -440,7 +440,7 @@ class MyAccessBDD extends AccessBDD
      * Ajoute un enregistrement dans la table document
      *
      * @param array $data Tableau associatif contenant les champs nécessaires
-     * @return bool true si l'insertion réussi false sinon
+     * @return bool True si succès, false sinon
      */
     private function insertDocument(array $data): bool
     {
@@ -455,9 +455,9 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * Met à jour un document dans la table `document`
+     * Met à jour un document
      * @param array $data du document
-     * @return bool true si la requête a été exécutée sans erreur, false sinon
+     * @return bool True si succès, false sinon
      */
     private function updateDocument(array $data): bool
     {
@@ -508,8 +508,7 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * Met à jour un document et ses données spécifiques (livre, dvd ou revue)
-     * Effectue la mise à jour dans `document` et dans la ou les table liée
+     * Met à jour un document et ses données liées selon le type
      * @param array $data du document
      * @param string $type du document
      * @param array $typeData spécifique liée au type
@@ -541,7 +540,7 @@ class MyAccessBDD extends AccessBDD
     /**
      * Supprime un document et ses données liées
      * Supprime de la table spécifique au type, de livres_dvd si c'est un livre ou un dvd et de document
-     * @param array $data Doit contenir l'id du document à supprimer
+     * @param array $data Id du document à supprimer
      * @param string $type du document (livre, dvd, revue)
      * @return int|null Retourne 1 si la suppression réussit, null en cas d'erreur
      */
@@ -585,7 +584,7 @@ class MyAccessBDD extends AccessBDD
     /**
      * Génère le prochain id de commande au format "00001"
      * Cherche le plus grand et l'incrémente de 1
-     * @return string
+     * @return string Prochain id
      */
     private function genererIdCommande(): string
     {
@@ -596,10 +595,10 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * Vérifie si une commande est supprimable
+     * Vérifie si une commande est supprimable selon son type et son statut
      * @param string $id de la commande
      * @param string $type commandedocument ou abonnement
-     * @return bool True si la ligne existe et que le bon statut correspond, false interdit, null introuvable
+     * @return bool true si supprimable, false sinon, null si introuvable
      */
     private function commandeSupprimable(string $id, string $type): bool|null
     {
@@ -695,10 +694,10 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * Supprime une commande si son statut est < '00003'
+     * Supprime une commande si elle n'est pas encore livrée ou réglée
      *
-     * @param array $data
-     * @param string $type
+     * @param array $data Id de la commande
+     * @param string $type de commande : commandedocument ou abonnement
      * @return int|null Retourne 1 si la suppression réussit ou null si échec
      */
     private function deleteCommande(array $data, string $type): ?int
@@ -746,9 +745,9 @@ class MyAccessBDD extends AccessBDD
     }
 
     /**
-     * Modifie une commande si son statut est < '00003'
+     * Modifie une commande si elle n'est pas encore livrée ou réglée
      *
-     * @param array $data
+     * @param array $data de la commande et le nouvel idSuivi
      * @return int|null Retourne 1 si la modification réussit ou null si échec
      */
     private function updateCommande(array $data): ?int
@@ -777,6 +776,11 @@ class MyAccessBDD extends AccessBDD
         }
     }
 
+    /**
+     * Met à jour l'état d'un exemplaire dans la BDD
+     * @param array $data de l'exemplaire et le nouvel idEtat
+     * @return int|null Retourne 2 si succès ou null si erreur
+     */
     private function updateExemplaire(array $data): ?int
     {
         try {
