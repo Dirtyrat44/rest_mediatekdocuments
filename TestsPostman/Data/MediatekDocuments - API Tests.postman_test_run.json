@@ -1,7 +1,7 @@
 {
-	"id": "70fe2bb2-31b0-4eba-bd37-ef22b889b28e",
+	"id": "f3e1a235-96ad-45cf-9334-849621950241",
 	"name": "MediatekDocuments - API Tests",
-	"timestamp": "2025-05-09T09:33:28.667Z",
+	"timestamp": "2025-05-10T13:21:26.038Z",
 	"collection_id": "43760039-84a13105-91c7-495c-bc22-cb8cd649b5ca",
 	"folder_id": 0,
 	"environment_id": "43760039-0d342ce6-c7ed-49fb-a015-b9f058ce175d",
@@ -9,14 +9,14 @@
 	"delay": 0,
 	"persist": true,
 	"status": "finished",
-	"startedAt": "2025-05-09T09:33:25.868Z",
+	"startedAt": "2025-05-10T13:21:21.462Z",
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "122a50af-a72b-4b5e-9ddb-9e7213260d37",
 			"name": "Ajouter un livre",
-			"url": "http://localhost/rest_mediatekdocuments/livre",
-			"time": 14,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/livre",
+			"time": 93,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -24,7 +24,7 @@
 			"tests": {
 				"Status code is 200": true,
 				"code/message/result": true,
-				"Retour = OK": true,
+				"Message = OK": true,
 				"Une ligne ajoutée": true,
 				"Response time is less than 1000ms": true
 			},
@@ -37,7 +37,7 @@
 					"pass": 1,
 					"fail": 0
 				},
-				"Retour = OK": {
+				"Message = OK": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -51,13 +51,13 @@
 				}
 			},
 			"times": [
-				14
+				93
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
 					"code/message/result": true,
-					"Retour = OK": true,
+					"Message = OK": true,
 					"Une ligne ajoutée": true,
 					"Response time is less than 1000ms": true
 				}
@@ -66,8 +66,8 @@
 		{
 			"id": "a53e83b9-abe4-4527-8986-676f64b9301b",
 			"name": "Afficher les livres",
-			"url": "http://localhost/rest_mediatekdocuments/livre",
-			"time": 31,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/livre",
+			"time": 46,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -112,7 +112,7 @@
 				}
 			},
 			"times": [
-				31
+				46
 			],
 			"allTests": [
 				{
@@ -129,8 +129,8 @@
 		{
 			"id": "5e3a8b5c-0cb6-482f-a35f-047c256404cf",
 			"name": "Update un livre",
-			"url": "http://localhost/rest_mediatekdocuments/livre",
-			"time": 23,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/livre",
+			"time": 107,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -165,7 +165,7 @@
 				}
 			},
 			"times": [
-				23
+				107
 			],
 			"allTests": [
 				{
@@ -180,8 +180,8 @@
 		{
 			"id": "22f1a6ff-b4bc-4ae8-9aaa-e8711ac0cf62",
 			"name": "Supprimer un livre",
-			"url": "http://localhost/rest_mediatekdocuments/livre",
-			"time": 39,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/livre",
+			"time": 77,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -216,7 +216,7 @@
 				}
 			},
 			"times": [
-				39
+				77
 			],
 			"allTests": [
 				{
@@ -231,8 +231,8 @@
 		{
 			"id": "2c46612a-7c03-4266-a2e3-d58b6c68dfec",
 			"name": "Vérifier la suppression",
-			"url": "http://localhost/rest_mediatekdocuments/livre",
-			"time": 33,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/livre",
+			"time": 86,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -262,7 +262,7 @@
 				}
 			},
 			"times": [
-				33
+				86
 			],
 			"allTests": [
 				{
@@ -276,8 +276,8 @@
 		{
 			"id": "b2e96eb3-5e89-4b22-8e78-97470c7c97ad",
 			"name": "Ajouter un DVD",
-			"url": "http://localhost/rest_mediatekdocuments/dvd",
-			"time": 24,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/dvd",
+			"time": 78,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -285,7 +285,7 @@
 			"tests": {
 				"Status code is 200": true,
 				"code/message/result": true,
-				"Retour OK": true,
+				"Message = OK": true,
 				"Une ligne ajoutée": true,
 				"Response time is less than 1000ms": true
 			},
@@ -298,7 +298,7 @@
 					"pass": 1,
 					"fail": 0
 				},
-				"Retour OK": {
+				"Message = OK": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -312,13 +312,13 @@
 				}
 			},
 			"times": [
-				24
+				78
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
 					"code/message/result": true,
-					"Retour OK": true,
+					"Message = OK": true,
 					"Une ligne ajoutée": true,
 					"Response time is less than 1000ms": true
 				}
@@ -327,8 +327,8 @@
 		{
 			"id": "8556f0d7-8983-4e71-97db-49846381f7e1",
 			"name": "Afficher les DVD",
-			"url": "http://localhost/rest_mediatekdocuments/dvd",
-			"time": 33,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/dvd",
+			"time": 75,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -373,7 +373,7 @@
 				}
 			},
 			"times": [
-				33
+				75
 			],
 			"allTests": [
 				{
@@ -390,7 +390,7 @@
 		{
 			"id": "1bda0082-a717-4dce-866d-079d0d5b108a",
 			"name": "Update un DVD",
-			"url": "http://localhost/rest_mediatekdocuments/dvd",
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/dvd",
 			"time": 22,
 			"responseCode": {
 				"code": 200,
@@ -441,8 +441,8 @@
 		{
 			"id": "544d8ace-ade9-44e7-90b5-e59c0b1789af",
 			"name": "Supprimer un DVD",
-			"url": "http://localhost/rest_mediatekdocuments/dvd",
-			"time": 26,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/dvd",
+			"time": 125,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -477,7 +477,7 @@
 				}
 			},
 			"times": [
-				26
+				125
 			],
 			"allTests": [
 				{
@@ -492,8 +492,8 @@
 		{
 			"id": "c6153350-5cb7-48a1-82e0-0472d40d8997",
 			"name": "Vérifier la suppression",
-			"url": "http://localhost/rest_mediatekdocuments/dvd",
-			"time": 7,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/dvd",
+			"time": 93,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -523,7 +523,7 @@
 				}
 			},
 			"times": [
-				7
+				93
 			],
 			"allTests": [
 				{
@@ -537,8 +537,8 @@
 		{
 			"id": "3cf7b470-f40f-4502-80db-9dcb404435f7",
 			"name": "Ajouter une revue",
-			"url": "http://localhost/rest_mediatekdocuments/revue",
-			"time": 42,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/revue",
+			"time": 78,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -546,7 +546,7 @@
 			"tests": {
 				"Status code is 200": true,
 				"code/message/result": true,
-				"Retour OK": true,
+				"Message = OK": true,
 				"Une ligne ajoutée": true,
 				"Response time is less than 1000ms": true
 			},
@@ -559,7 +559,7 @@
 					"pass": 1,
 					"fail": 0
 				},
-				"Retour OK": {
+				"Message = OK": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -573,13 +573,13 @@
 				}
 			},
 			"times": [
-				42
+				78
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
 					"code/message/result": true,
-					"Retour OK": true,
+					"Message = OK": true,
 					"Une ligne ajoutée": true,
 					"Response time is less than 1000ms": true
 				}
@@ -588,8 +588,8 @@
 		{
 			"id": "398d229b-4d43-45cf-b4c6-db18eb4a7ee0",
 			"name": "Afficher les revues",
-			"url": "http://localhost/rest_mediatekdocuments/revue",
-			"time": 18,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/revue",
+			"time": 78,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -634,7 +634,7 @@
 				}
 			},
 			"times": [
-				18
+				78
 			],
 			"allTests": [
 				{
@@ -651,8 +651,8 @@
 		{
 			"id": "68fdab77-453b-4eab-87db-6f50685a94e5",
 			"name": "Update une revue",
-			"url": "http://localhost/rest_mediatekdocuments/revue",
-			"time": 42,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/revue",
+			"time": 73,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -687,7 +687,7 @@
 				}
 			},
 			"times": [
-				42
+				73
 			],
 			"allTests": [
 				{
@@ -702,8 +702,8 @@
 		{
 			"id": "96dfa99f-b695-4a84-9bdd-dbb9d37fc9ad",
 			"name": "Supprimer une revue",
-			"url": "http://localhost/rest_mediatekdocuments/revue",
-			"time": 41,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/revue",
+			"time": 72,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -738,7 +738,7 @@
 				}
 			},
 			"times": [
-				41
+				72
 			],
 			"allTests": [
 				{
@@ -753,8 +753,8 @@
 		{
 			"id": "c3cad15a-5eac-4d11-bf60-6a8565782144",
 			"name": "Vérifier la suppression",
-			"url": "http://localhost/rest_mediatekdocuments/revue",
-			"time": 9,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/revue",
+			"time": 75,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -784,7 +784,7 @@
 				}
 			},
 			"times": [
-				9
+				75
 			],
 			"allTests": [
 				{
@@ -798,8 +798,8 @@
 		{
 			"id": "0c2282ed-b1d3-4a04-8e71-ef42102e8c26",
 			"name": "Ajouter une commande",
-			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
-			"time": 37,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/commandedocument",
+			"time": 87,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -834,7 +834,7 @@
 				}
 			},
 			"times": [
-				37
+				87
 			],
 			"allTests": [
 				{
@@ -849,8 +849,8 @@
 		{
 			"id": "e057bbc5-49ca-4595-bfad-dd4ddcc003ca",
 			"name": "Update la commande",
-			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
-			"time": 38,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/commandedocument",
+			"time": 75,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -885,7 +885,7 @@
 				}
 			},
 			"times": [
-				38
+				75
 			],
 			"allTests": [
 				{
@@ -900,8 +900,8 @@
 		{
 			"id": "2b4e8f0b-1fb7-4518-81d5-50ca25838cb9",
 			"name": "Supprimer une commande",
-			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
-			"time": 35,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/commandedocument",
+			"time": 75,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -936,7 +936,7 @@
 				}
 			},
 			"times": [
-				35
+				75
 			],
 			"allTests": [
 				{
@@ -951,8 +951,8 @@
 		{
 			"id": "867a8213-03a9-4e82-8493-a159c1daf182",
 			"name": "Vérifier la suppression de la commande",
-			"url": "http://localhost/rest_mediatekdocuments/commandedocument",
-			"time": 35,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/commandedocument",
+			"time": 73,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -992,7 +992,7 @@
 				}
 			},
 			"times": [
-				35
+				73
 			],
 			"allTests": [
 				{
@@ -1008,8 +1008,8 @@
 		{
 			"id": "a3899854-ea39-484b-a870-b2d6e5d1b0b9",
 			"name": "Ajouter un abonnement",
-			"url": "http://localhost/rest_mediatekdocuments/abonnement",
-			"time": 37,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/abonnement",
+			"time": 77,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1044,7 +1044,7 @@
 				}
 			},
 			"times": [
-				37
+				77
 			],
 			"allTests": [
 				{
@@ -1059,8 +1059,8 @@
 		{
 			"id": "8b610726-089d-42e2-9cd9-f560523a5a4b",
 			"name": "Afficher les abonnements",
-			"url": "http://localhost/rest_mediatekdocuments/abonnement",
-			"time": 35,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/abonnement",
+			"time": 92,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1105,7 +1105,7 @@
 				}
 			},
 			"times": [
-				35
+				92
 			],
 			"allTests": [
 				{
@@ -1122,8 +1122,8 @@
 		{
 			"id": "5be4f2ed-8377-418e-8c92-2af9dbba6b22",
 			"name": "Supprimer un abonnement",
-			"url": "http://localhost/rest_mediatekdocuments/abonnement",
-			"time": 13,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/abonnement",
+			"time": 77,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1158,7 +1158,7 @@
 				}
 			},
 			"times": [
-				13
+				77
 			],
 			"allTests": [
 				{
@@ -1173,8 +1173,8 @@
 		{
 			"id": "cdc51cfa-6ab8-4893-b1de-774db524c4e3",
 			"name": "Vérifier la suppression de l'abonnement",
-			"url": "http://localhost/rest_mediatekdocuments/abonnement",
-			"time": 35,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/abonnement",
+			"time": 90,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1214,7 +1214,7 @@
 				}
 			},
 			"times": [
-				35
+				90
 			],
 			"allTests": [
 				{
@@ -1230,8 +1230,8 @@
 		{
 			"id": "ca90ab11-cb96-42db-8a3e-eff452e32b8a",
 			"name": "Ajouter un exemplaire",
-			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
-			"time": 37,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/exemplaire",
+			"time": 94,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1266,7 +1266,7 @@
 				}
 			},
 			"times": [
-				37
+				94
 			],
 			"allTests": [
 				{
@@ -1281,8 +1281,8 @@
 		{
 			"id": "0e41a7fe-cdea-47c2-bda0-4a4aa1b666f8",
 			"name": "Afficher les exemplaires",
-			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
-			"time": 18,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/exemplaire",
+			"time": 90,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1327,7 +1327,7 @@
 				}
 			},
 			"times": [
-				18
+				90
 			],
 			"allTests": [
 				{
@@ -1344,8 +1344,8 @@
 		{
 			"id": "7389dbc3-ced8-4e4a-85f1-44b41e3cf58e",
 			"name": "Update un exemplaire",
-			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
-			"time": 38,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/exemplaire",
+			"time": 81,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1380,7 +1380,7 @@
 				}
 			},
 			"times": [
-				38
+				81
 			],
 			"allTests": [
 				{
@@ -1395,8 +1395,8 @@
 		{
 			"id": "ed53196a-50cd-42d4-9863-5c0afde5b79a",
 			"name": "Supprimer un exemplaire",
-			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
-			"time": 21,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/exemplaire",
+			"time": 22,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1431,7 +1431,7 @@
 				}
 			},
 			"times": [
-				21
+				22
 			],
 			"allTests": [
 				{
@@ -1446,8 +1446,8 @@
 		{
 			"id": "65b99f29-c6b0-4a90-a1bb-b2ff4cb737c1",
 			"name": "Vérifier la suppression de l'exemplaire",
-			"url": "http://localhost/rest_mediatekdocuments/exemplaire",
-			"time": 33,
+			"url": "mediatekformation.alwaysdata.net/mediatekdocuments/exemplaire",
+			"time": 24,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1487,7 +1487,7 @@
 				}
 			},
 			"times": [
-				33
+				24
 			],
 			"allTests": [
 				{
@@ -1502,7 +1502,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 816,
+	"totalTime": 2135,
 	"collection": {
 		"requests": [
 			{

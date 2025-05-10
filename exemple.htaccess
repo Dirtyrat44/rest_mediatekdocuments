@@ -1,11 +1,11 @@
 # Définition des infos BDD pour PHP
-SetEnv BDD_LOGIN 406927
-SetEnv BDD_PWD HAXX5Uer
-SetEnv BDD_BD mediatekformation_mediatek86
-SetEnv BDD_SERVER mysql-mediatekformation.alwaysdata.net
-SetEnv BDD_PORT 3306
-SetEnv AUTH_USER admin
-SetEnv AUTH_PW 3dr-4nz
+SetEnv BDD_LOGIN your_login
+SetEnv BDD_PWD your_pwd
+SetEnv BDD_BD your_bdd
+SetEnv BDD_SERVER your_server
+SetEnv BDD_PORT your_port
+SetEnv AUTH_USER your_auth
+SetEnv AUTH_PW your_pw
 
 # Désactive le listing de dossier
 Options -Indexes
